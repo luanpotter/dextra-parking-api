@@ -26,6 +26,11 @@
             <artifactId>firebase-admin</artifactId>
             <version>5.6.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.16</version>
+        </dependency>
 
         <!-- testing dependencies -->
         <dependency>

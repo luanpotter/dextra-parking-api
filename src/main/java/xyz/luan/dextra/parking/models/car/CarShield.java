@@ -2,6 +2,8 @@ package xyz.luan.dextra.parking.models.car;
 
 import com.google.firebase.auth.FirebaseToken;
 import io.yawp.commons.http.HttpException;
+import io.yawp.commons.http.annotation.GET;
+import io.yawp.commons.http.annotation.PUT;
 import io.yawp.repository.IdRef;
 import io.yawp.repository.shields.Shield;
 import xyz.luan.dextra.parking.ws.AuthHolder;
@@ -35,6 +37,16 @@ public class CarShield extends Shield<Car> {
         if (!isDextra) {
             throw new HttpException(403, "Not authorized");
         }
+        allow(true);
+    }
+
+    @PUT
+    public void location(IdRef<Car> carId, String location) {
+        allow(true);
+    }
+
+    @GET
+    public void location(IdRef<Car> carId) {
         allow(true);
     }
 }

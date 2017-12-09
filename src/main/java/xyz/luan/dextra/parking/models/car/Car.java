@@ -4,7 +4,9 @@ import io.yawp.repository.IdRef;
 import io.yawp.repository.annotations.Endpoint;
 import io.yawp.repository.annotations.Id;
 import io.yawp.repository.annotations.Index;
+import lombok.Data;
 
+@Data
 @Endpoint(path = "/cars")
 public class Car {
 
@@ -13,4 +15,6 @@ public class Car {
 
     @Index(normalize = false)
     private String email;
+
+    private String location;
 }
