@@ -21,6 +21,11 @@
             <artifactId>yawp</artifactId>
             <version>${yawp.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.firebase</groupId>
+            <artifactId>firebase-admin</artifactId>
+            <version>5.6.0</version>
+        </dependency>
 
         <!-- testing dependencies -->
         <dependency>
@@ -44,8 +49,8 @@
                 <version>2.5.1</version>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
 

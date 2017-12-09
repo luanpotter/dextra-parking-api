@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Firebase auth test</title>
+	<script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+</head>
+<body>
+	<h1>Login Test</h1>
+	<div id="firebaseui-auth-container"></div>
+	<script>
+		// Initialize Firebase
+		const config = {
+			apiKey: "AIzaSyC3sWq8Efvd0k6ETKBUfY1BgARIpf5igtc",
+			authDomain: "dextra-parking.firebaseapp.com",
+			databaseURL: "https://dextra-parking.firebaseio.com",
+			projectId: "dextra-parking",
+			storageBucket: "dextra-parking.appspot.com",
+			messagingSenderId: "164824251074"
+		};
+		firebase.initializeApp(config);
+
+		function configureFirebaseLoginWidget() {
+			const uiConfig = {
+				'signInSuccessUrl': '/',
+				'signInOptions': [
+					firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+					firebase.auth.EmailAuthProvider.PROVIDER_ID
+				]
+			};
+
+			const ui = new firebaseui.auth.AuthUI(firebase.auth());
+			ui.start('#firebaseui-auth-container', uiConfig);
+		}
+
+		firebase.auth().onAuthStateChanged(user => {
+			if (user) {
+				const name = user.displayName;
+				const welcomeName = name ? name : user.email;
+
+				user.getToken().then(idToken => {
+					console.log(idToken, welcomeName);
+				});
+			} else {
+				console.error('No user, mate!');
+			}
+		});
+
+		configureFirebaseLoginWidget();
+	</script>
+</body>
