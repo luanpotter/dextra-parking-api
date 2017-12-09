@@ -38,7 +38,7 @@
 
     <filter>
         <filter-name>AuthFilter</filter-name>
-        <filter-class>xyz.luan.dextra.parking.ws.AuthFilter</filter-class>
+        <filter-class>xyz.luan.dextra.parking.ws.FirebaseAuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>AuthFilter</filter-name>

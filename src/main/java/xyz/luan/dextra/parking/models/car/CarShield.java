@@ -29,11 +29,11 @@ public class CarShield extends Shield<Car> {
 
     @Override
     public void create(List<Car> objects) {
-        FirebaseToken token = AuthHolder.token.get();
-        if (token == null) {
+        String email = AuthHolder.email.get();
+        if (email == null) {
             throw new HttpException(403, "Must pass a firebase-token header to do that.");
         }
-        boolean isDextra = AuthHolder.extractDomain(token.getEmail()).equals("dextra-sw.com");
+        boolean isDextra = AuthHolder.extractDomain(email).equals("dextra-sw.com");
         if (!isDextra) {
             throw new HttpException(403, "Not authorized");
         }

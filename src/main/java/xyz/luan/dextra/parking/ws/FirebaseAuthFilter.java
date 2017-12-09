@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.Objects;
 import java.util.concurrent.ExecutionException;
 
-public class AuthFilter extends HttpFilter {
+public class FirebaseAuthFilter extends HttpFilter {
 
     @Override
     protected void filter(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
@@ -24,7 +24,7 @@ public class AuthFilter extends HttpFilter {
             if (!decodedToken.isEmailVerified()) {
                 throw new HttpException(403, "You can only login with a verified e-mail!");
             }
-            AuthHolder.token.set(decodedToken);
+            AuthHolder.email.set(decodedToken.getEmail());
         }
     }
 

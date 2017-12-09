@@ -1,10 +1,9 @@
 package xyz.luan.dextra.parking.ws;
 
-import com.google.firebase.auth.FirebaseToken;
 import io.yawp.commons.http.HttpException;
 
 public class AuthHolder {
-    public static final ThreadLocal<FirebaseToken> token = new ThreadLocal<>();
+    public static final ThreadLocal<String> email = new ThreadLocal<>();
 
     public static String extractDomain(String email) {
         String[] parts = email.split("@");
