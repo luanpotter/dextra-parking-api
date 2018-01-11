@@ -6,6 +6,8 @@ import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseToken;
 import io.yawp.commons.http.HttpException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +16,12 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseAuthFilter extends HttpFilter {
 
+    private Logger LOGGER = LoggerFactory.getLogger(FirebaseAuthFilter.class);
+
     @Override
     protected void filter(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
         String authToken = request.getHeader("Authorization");
+        LOGGER.info("Request received [url: %s][auth: %s]", request.getRequestURI(), authToken);
 
         if (Objects.nonNull(authToken)) {
             String idToken = authToken.split(" ")[1];

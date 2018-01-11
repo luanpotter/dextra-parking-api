@@ -11,7 +11,7 @@
     <properties>
         <yawp.version>2.0.0alpha</yawp.version>
         <appengine.app.version>1</appengine.app.version>
-        <appengine.target.version>1.9.59</appengine.target.version>
+        <appengine.target.version>1.9.60</appengine.target.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -84,7 +84,7 @@
                 <artifactId>appengine-maven-plugin</artifactId>
                 <version>${appengine.target.version}</version>
                 <configuration>
-                    <!-- <address>0.0.0.0</address> -->
+                    <address>0.0.0.0</address>
                     <jvmFlags>
                         <jvmFlag>-Xdebug</jvmFlag>
                         <jvmFlag>-Xnoagent</jvmFlag>
