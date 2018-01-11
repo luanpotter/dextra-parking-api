@@ -10,7 +10,6 @@
 	<h1>Login Test</h1>
 	<div id="firebaseui-auth-container"></div>
 	<script>
-		// Initialize Firebase
 		const config = {
 			apiKey: "AIzaSyC3sWq8Efvd0k6ETKBUfY1BgARIpf5igtc",
 			authDomain: "dextra-parking.firebaseapp.com",
@@ -21,7 +20,7 @@
 		};
 		firebase.initializeApp(config);
 
-		function configureFirebaseLoginWidget() {
+		const configureFirebaseLoginWidget = () => {
 			const uiConfig = {
 				'signInSuccessUrl': '/',
 				'signInOptions': [firebase.auth.GoogleAuthProvider.PROVIDER_ID]
@@ -29,14 +28,14 @@
 
 			const ui = new firebaseui.auth.AuthUI(firebase.auth());
 			ui.start('#firebaseui-auth-container', uiConfig);
-		}
+		};
 
 		firebase.auth().onAuthStateChanged(user => {
 			if (user) {
 				const name = user.displayName;
 				const welcomeName = name ? name : user.email;
 
-				user.getToken().then(idToken => {
+				user.getIdToken().then(idToken => {
 					console.log(idToken, welcomeName);
 				});
 			} else {
