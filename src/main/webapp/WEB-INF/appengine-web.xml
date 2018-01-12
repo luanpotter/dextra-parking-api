@@ -5,6 +5,8 @@
     <threadsafe>true</threadsafe>
     <runtime>java8</runtime>
 
+    <public-root>/public</public-root>
+
     <system-properties>
         <property name="java.util.logging.config.file" value="WEB-INF/log4j.properties"/>
         <property name="file.encoding" value="UTF-8"/>
