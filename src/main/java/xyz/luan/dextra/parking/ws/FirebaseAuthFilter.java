@@ -21,7 +21,7 @@ public class FirebaseAuthFilter extends HttpFilter {
     @Override
     protected void filter(HttpServletRequest request, HttpServletResponse response) throws ExecutionException, InterruptedException {
         String authToken = request.getHeader("Authorization");
-        LOGGER.info("Request received [url: %s][auth: %s]", request.getRequestURI(), authToken);
+        LOGGER.info("Request received [url: {}][auth: {}]", request.getRequestURI(), authToken);
 
         if (Objects.nonNull(authToken)) {
             String idToken = authToken.split(" ")[1];
