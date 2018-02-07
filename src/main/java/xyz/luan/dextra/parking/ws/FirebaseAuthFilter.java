@@ -31,6 +31,8 @@ public class FirebaseAuthFilter extends HttpFilter {
 			String email = decodedToken.getEmail();
 			LOGGER.info(String.format("Authenticated: [%s]", email));
 			AuthHolder.email.set(email);
+		} else {
+			AuthHolder.email.set(null);
 		}
 	}
 
