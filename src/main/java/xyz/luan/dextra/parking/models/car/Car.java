@@ -16,5 +16,11 @@ public class Car {
     @Index(normalize = false)
     private String email;
 
+    private String name;
+
+    private String model;
+
+    private String plate;
+
     private String location;
 }
