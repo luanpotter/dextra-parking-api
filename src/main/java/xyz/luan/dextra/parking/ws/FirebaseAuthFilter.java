@@ -40,7 +40,7 @@ public class FirebaseAuthFilter extends HttpFilter {
 
 	private static FirebaseAuth getFirebase() {
 		if (_auth == null) {
-			FirebaseOptions options = new FirebaseOptions.Builder().setProjectId("dextraparking").setCredentials(GoogleCredentials.newBuilder().build()).build();
+			FirebaseOptions options = new FirebaseOptions.Builder().setProjectId("dextra-parking").setCredentials(GoogleCredentials.newBuilder().build()).build();
 			FirebaseApp app = FirebaseApp.initializeApp(options);
 			_auth = FirebaseAuth.getInstance(app);
 		}
