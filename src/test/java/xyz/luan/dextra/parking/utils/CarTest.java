@@ -11,8 +11,14 @@ import static org.junit.Assert.assertThat;
 
 public class CarTest extends EndpointTestCase {
 
+    @Test(expected = HttpException.class)
+    public void listAllDisabledTest() {
+        get("/cars/1");
+    }
+
     @Test
-    public void listAll() {
+    public void listAllTest() {
+        AuthHolder.email.set("test@dextra-sw.com");
         String get = get("/cars");
         assertThat(get, is(equalTo("[]")));
     }
@@ -38,7 +44,6 @@ public class CarTest extends EndpointTestCase {
         AuthHolder.email.set("test@dextra-sw.com");
         String json = post("/cars", "{\"email\":\"carro1@dextra-sw.com\", \"location\":\"my house\"}");
         String id = new JsonParser().parse(json).getAsJsonObject().get("id").getAsString();
-        AuthHolder.email.set(null);
 
         assertThat(get(id + "/location"), is(equalTo("\"my house\"")));
 
